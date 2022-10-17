@@ -13,6 +13,26 @@ hr {
 
 /* ======================================= */
 
+/* Header Section CSS Starts */
+
+.active-link {
+    color: #ff5252;
+    border-bottom: 1px solid #ff5252;
+}
+
+.navbar-list-item li {
+    margin-right: 20px;
+}
+
+.navbar-list-item li a:hover {
+    color: #ff5252;
+    border-bottom: 1px solid #ff5252;
+}
+
+.navbar-list-item li a:active {
+    color: blueviolet;
+}
+
 /* News Category CSS Starts */
 
 .list-category-container {
