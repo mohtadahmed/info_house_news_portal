@@ -38,14 +38,14 @@ const displayCategoryNews = news => {
         const showAllNewsByCategory = document.createElement('div');
         showAllNewsByCategory.classList.add('card', 'mb-3');
         showAllNewsByCategory.innerHTML = `
-        <div class="container d-flex flex-row p-lg-4">
+        <div class="container d-lg-flex flex-lg-row p-lg-4">
             <img src="${news_item.thumbnail_url}" class="img-fluid rounded-start me-lg-2" alt="...">
             <div class="card-body">
                 <h4 class="card-title">${news_item.title}</h4>
                 <p class="card-text news-info-container">${news_item.details.slice(0, 350)}...</p>
                 
-                <div class="news-info-container d-flex align-items-center justify-content-between mt-lg-5 mt-2 border-top p-3">
-                    <div class="d-flex justify-content-around align-items-center">
+                <div class="news-info-container d-lg-flex align-items-center justify-content-between mt-lg-5 mt-2 border-top p-3">
+                    <div class="d-flex justify-content-around align-items-center mb-lg-0 mb-2">
                         <div class="me-2">
                             <img src="${news_item.author.img}" height="40" width="40" class="rounded-circle">
                         </div>
@@ -58,7 +58,7 @@ const displayCategoryNews = news => {
                         <span><i class="fa-solid fa-eye"></i></span>
                         <span>${news_item.total_view}</span>
                     </div>
-                    <div>
+                    <div class="mb-lg-0 mb-2">
                         <span><i class="fa-solid fa-star-half-stroke"></i></span>
                         <span><i class="fa-regular fa-star"></i></span>
                         <span><i class="fa-regular fa-star"></i></span>
