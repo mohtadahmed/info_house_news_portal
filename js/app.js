@@ -6,14 +6,19 @@ const loadCategory = () =>{
         .then(data => displayCategoryData(data.data.news_category))
 }
 
+// Display Category Data in the UI
 const displayCategoryData = categories => {
-    // console.log(catagories.news_category)
-    // console.log(categories);
-    
-    categories.forEach(element =>{
-        console.log(element.category_name);
+    categories.forEach(category =>{
+        const newsCategory = document.getElementById('news-category');
+        const categorListItem = document.createElement('li');
+        categorListItem.innerHTML = `
+            <li class="category-list-items">${category.category_name}</li>
+        `;
+
+        newsCategory.appendChild(categorListItem);
     });
-}
+};
 
 
+// Calling the Category Function to load data
 loadCategory();

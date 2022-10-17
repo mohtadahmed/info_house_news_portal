@@ -1,3 +1,4 @@
+/* General CSS Starts */
 body {
     background-color: #F6F6F6;
 }
@@ -7,3 +8,33 @@ hr {
     width: 100%;
     color: rebeccapurple;
 }
+
+/* General CSS Ends */
+
+/* ======================================= */
+
+/* News Category CSS Starts */
+
+.list-category-container {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.category-list-items {
+    background-color: #EEEEEE;
+    color: #858585;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.category-list-items:hover {
+    color: #ff5252;
+    border-bottom: 1px solid #ff5252;
+}
+
+/* News Category CSS Ends */
+/* ======================================= */
