@@ -8,7 +8,7 @@ const loadCategory = () =>{
 
 // Display Category Data in the UI
 const displayCategoryData = categories => {
-    console.log(categories)
+    // console.log(categories)
     categories.forEach(category =>{
         const newsCategory = document.getElementById('news-category');
         const categorListItem = document.createElement('li');
@@ -32,24 +32,49 @@ const loadCategoryId = async (category_id) => {
 
 // Display News as Category in the UI
 const displayCategoryNews = news => {
-    console.log(news);
+    // console.log(news);
     news.forEach( news_item => {
         const showNewsContainer =document.getElementById('show-news-container');
         const showAllNewsByCategory = document.createElement('div');
         showAllNewsByCategory.classList.add('card', 'mb-3');
         showAllNewsByCategory.innerHTML = `
         <div class="container d-flex flex-row p-lg-4">
-            <img src="${news_item.thumbnail_url}" class="img-fluid rounded-start" alt="...">
+            <img src="${news_item.thumbnail_url}" class="img-fluid rounded-start me-lg-2" alt="...">
             <div class="card-body">
                 <h4 class="card-title">${news_item.title}</h4>
-                <p class="card-text">${news_item.details.slice(0, 350)}...</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text news-info-container">${news_item.details.slice(0, 350)}...</p>
+                
+                <div class="news-info-container d-flex align-items-center justify-content-between mt-lg-5 mt-2 border-top p-3">
+                    <div class="d-flex justify-content-around align-items-center">
+                        <div class="me-2">
+                            <img src="${news_item.author.img}" height="40" width="40" class="rounded-circle">
+                        </div>
+                        <div class="author-details">
+                            <p class="m-0">${news_item.author.name}</p>
+                            <p class="m-0">${news_item.author.published_date}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <span><i class="fa-solid fa-eye"></i></span>
+                        <span>${news_item.total_view}</span>
+                    </div>
+                    <div>
+                        <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>
+                        <span><i class="fa-regular fa-star"></i></span>                        
+                    </div>
+                    <div>
+                        <button class="btn btn-primary">Details</button>
+                    </div>
+                </div>
             </div>
         </div>
         `;
 
         showNewsContainer.appendChild(showAllNewsByCategory);
-    })
+    });
 };
 
 

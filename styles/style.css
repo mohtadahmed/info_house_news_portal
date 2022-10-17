@@ -37,4 +37,19 @@ hr {
 }
 
 /* News Category CSS Ends */
+
+/* ======================================= */
+
+/* News Container CSS Starts */
+
+.news-info-container {
+    color: #858585;
+}
+
+.author-details p {
+    font-size: 16px;
+}
+
+/* News Container CSS Ends */
+
 /* ======================================= */
