@@ -63,6 +63,7 @@
     <main>
         <!-- News Category Section -->
         <section class="container">
+            <h3 class="text-center my-lg-5 my-3 text-bg-dark">Which Kind of News You Want?</h3>
             <div class="list-category-container" id="news-category">
 
             </div>
@@ -76,6 +77,64 @@
             </div>
         </section>
         <!-- Category wise News Showing Section -->
+
+        <!-- News Shows as Modal Section -->
+        <section>
+            <!-- Modal -->
+            <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="newsModalTitle"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="news-img">
+
+                            </div>
+                            <div>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">Author: </td>
+                                            <td class="col-lg-8" id="author-name"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">Publish Date: </td>
+                                            <td class="col-lg-8" id="published-date"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">Total View: </td>
+                                            <td class="col-lg-8" id="total-view"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">Rating: </td>
+                                            <td class="col-lg-8" id="rating-number"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">News Quality: </td>
+                                            <td class="col-lg-8" id="news-qualtity"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">Category: </td>
+                                            <td class="col-lg-8" id="trending-news"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-lg-4 fw-bold">Details: </td>
+                                            <td class="col-lg-8" id="details-news"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Back to Home</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- News Shows as Modal Section -->
     </main>
     <!-- Main Section -->
 

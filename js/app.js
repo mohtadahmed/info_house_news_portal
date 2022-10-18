@@ -31,9 +31,9 @@ const loadCategoryId = async (category_id) => {
 
 
 // Display News as Category in the UI
-const displayCategoryNews = news => {
+const displayCategoryNews = newsContainer => {
     // console.log(news);
-    news.forEach( news_item => {
+    newsContainer.forEach( news_item => {
         const showNewsContainer =document.getElementById('show-news-container');
         const showAllNewsByCategory = document.createElement('div');
         showAllNewsByCategory.classList.add('card', 'my-5');
@@ -66,7 +66,7 @@ const displayCategoryNews = news => {
                         <span><i class="fa-regular fa-star"></i></span>                        
                     </div>
                     <div>
-                        <button class="btn btn-danger">Details</button>
+                        <button onclick="loadModal('${news_item._id}')" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#newsModal">Details</button>
                     </div>
                 </div>
             </div>
@@ -76,6 +76,55 @@ const displayCategoryNews = news => {
         showNewsContainer.appendChild(showAllNewsByCategory);
     });
 };
+
+
+// Function for loading a Modal for News
+const loadModal = async (news) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    displayModalData(data.data[0])
+}
+
+// Display Modal Data to the UI
+const displayModalData = info => {
+    const modalTitle = document.getElementById('newsModalTitle');
+    modalTitle.innerText = info.title;
+
+    const newsPicture = document.getElementById('news-img');
+    newsPicture.innerHTML = `
+        <img class="img-fluid" src="${info.image_url}">
+    `;
+
+    const authorName = document.getElementById('author-name');
+    authorName.innerText = info.author.name;
+
+    const publishedDate = document.getElementById('published-date');
+    publishedDate.innerText = info.author.published_date;
+
+    const totalView = document.getElementById('total-view');
+    totalView.innerText = info.total_view;
+
+    const newsRating = document.getElementById('rating-number');
+    newsRating.innerText = info.rating.number;
+
+    const newsQuality = document.getElementById('news-qualtity');
+    newsQuality.innerText = info.rating.badge;
+
+    const trendingNews = document.getElementById('trending-news');
+    
+    if(info.others_info.is_trending === true){
+        trendingNews.innerText = 'Trending';
+    }
+    else{
+        trendingNews.innerText = 'None';
+    }
+
+    
+
+    const detailsNews = document.getElementById('details-news');
+    detailsNews.innerText = info.details;
+}
 
 
 // Calling the Category Function to load data
