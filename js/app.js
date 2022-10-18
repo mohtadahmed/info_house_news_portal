@@ -4,11 +4,16 @@ const loadCategory = () =>{
     fetch(url)
         .then(res => res.json())
         .then(data => displayCategoryData(data.data.news_category))
+    
+    .catch(error => {
+        const errorMessageContainer = document.getElementById('error-msg');
+        errorMessageContainer.innerText = 'Oops! We have got some trouble. Try after some time'
+    });
 }
 
 // Display Category Data in the UI
 const displayCategoryData = (categories) => {
-    categories.map(category =>{
+    categories.forEach(category =>{
         const newsCategory = document.getElementById('news-category');
         const categorListItem = document.createElement('ul');
         categorListItem.innerHTML = `
@@ -17,8 +22,6 @@ const displayCategoryData = (categories) => {
 
         newsCategory.appendChild(categorListItem);
 
-        return category;
-        console.log(category);
     });
 };
 
@@ -28,17 +31,36 @@ const loadCategoryId = async (category_id, categoryData) => {
     // Call Toggle Spinner Function
     toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategoryNews(data.data, categoryData);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategoryNews(data.data, categoryData);
+    } 
+    catch (error) {
+        const errorMessageContainer = document.getElementById('error-msg');
+        errorMessageContainer.innerText = 'Oops! We have got some trouble. Try after some time'
+    }
+    finally{
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategoryNews(data.data, categoryData);
+    }
 }
 
 const getCategoryName = (categoryNewsLength, categoryName) => {
     // console.log(categoryName, categoryNewsLength);
     const totalNewsContainer = document.getElementById('total-news');
-    totalNewsContainer.innerHTML = `
-        <h4 class="border-1 text-danger text-center">${categoryNewsLength} news found in the ${categoryName} section</h4>
+    if(categoryNewsLength > 0){
+        totalNewsContainer.innerHTML = `
+        <h4 class="border-1 text-danger text-center my-lg-3">${categoryNewsLength} news found in the ${categoryName} section</h4>
     `;
+    }
+    else{
+        totalNewsContainer.innerHTML = `
+        <h4 class="border-1 text-danger text-center my-lg-3">No news found in the ${categoryName} section</h4>
+        `;
+    }
+    
 }
 
 // Display News as Category in the UI
@@ -101,9 +123,20 @@ const displayCategoryNews = (newsContainer, categoryName) => {
 // Function for loading a Modal for News
 const loadModal = async (news) => {
     const url = `https://openapi.programming-hero.com/api/news/${news}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayModalData(data.data[0])
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayModalData(data.data[0])
+    } 
+    catch (error) {
+        const errorMessageContainer = document.getElementById('error-msg');
+        errorMessageContainer.innerText = 'Oops! We have got some trouble. Try after some time'
+    }
+    finally{
+        const res = await fetch(url);
+        const data = await res.json();
+        displayModalData(data.data[0])
+    }
 }
 
 // Display Modal Data to the UI
