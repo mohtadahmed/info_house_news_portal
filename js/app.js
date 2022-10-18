@@ -7,34 +7,46 @@ const loadCategory = () =>{
 }
 
 // Display Category Data in the UI
-const displayCategoryData = categories => {
-    // console.log(categories)
-    categories.forEach(category =>{
+const displayCategoryData = (categories) => {
+    categories.map(category =>{
         const newsCategory = document.getElementById('news-category');
         const categorListItem = document.createElement('ul');
         categorListItem.innerHTML = `
-            <li onclick="loadCategoryId('${category.category_id}')" class="category-list-items">${category.category_name}</li>
+            <li onclick="loadCategoryId('${category.category_id}', '${category.category_name}')" class="category-list-items">${category.category_name}</li>
         `;
 
         newsCategory.appendChild(categorListItem);
+
+        return category;
+        console.log(category);
     });
 };
 
 
 // Load Category Id Function
-const loadCategoryId = async (category_id) => {
+const loadCategoryId = async (category_id, categoryData) => {
     // Call Toggle Spinner Function
     toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
     const res = await fetch(url);
     const data = await res.json();
-    displayCategoryNews(data.data);
+    displayCategoryNews(data.data, categoryData);
 }
 
+const getCategoryName = (categoryNewsLength, categoryName) => {
+    // console.log(categoryName, categoryNewsLength);
+    const totalNewsContainer = document.getElementById('total-news');
+    totalNewsContainer.innerHTML = `
+        <h4 class="border-1 text-danger text-center">${categoryNewsLength} news found in the ${categoryName} section</h4>
+    `;
+}
 
 // Display News as Category in the UI
-const displayCategoryNews = newsContainer => {
-    // console.log(news);
+const displayCategoryNews = (newsContainer, categoryName) => {
+
+    // Call Get Category Name Function to get Category name and category length
+    getCategoryName(newsContainer.length, categoryName);
+
     const showNewsContainer =document.getElementById('show-news-container');
     showNewsContainer.textContent = '';
 
@@ -82,7 +94,7 @@ const displayCategoryNews = newsContainer => {
 
     // Call Toggle Spinner Function
     toggleSpinner(false);
-    
+
 };
 
 
