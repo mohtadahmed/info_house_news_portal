@@ -6,7 +6,7 @@ body {
 hr {
     height: 5px;
     width: 100%;
-    color: rebeccapurple;
+    color: #ff5252;
 }
 
 /* General CSS Ends */
@@ -36,13 +36,13 @@ hr {
 /* News Category CSS Starts */
 
 .list-category-container {
-    list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .category-list-items {
+    list-style: none;
     background-color: #EEEEEE;
     color: #858585;
     padding: 5px 10px;
@@ -63,11 +63,16 @@ hr {
 /* News Container CSS Starts */
 
 .news-info-container {
+    background-color: #F6F6F6;
     color: #858585;
 }
 
 .author-details p {
     font-size: 16px;
+}
+
+.text-color {
+    color: #858585;
 }
 
 /* News Container CSS Ends */

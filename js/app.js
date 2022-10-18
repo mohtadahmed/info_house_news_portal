@@ -11,7 +11,7 @@ const displayCategoryData = categories => {
     // console.log(categories)
     categories.forEach(category =>{
         const newsCategory = document.getElementById('news-category');
-        const categorListItem = document.createElement('li');
+        const categorListItem = document.createElement('ul');
         categorListItem.innerHTML = `
             <li onclick="loadCategoryId('${category.category_id}')" class="category-list-items">${category.category_name}</li>
         `;
@@ -36,13 +36,13 @@ const displayCategoryNews = news => {
     news.forEach( news_item => {
         const showNewsContainer =document.getElementById('show-news-container');
         const showAllNewsByCategory = document.createElement('div');
-        showAllNewsByCategory.classList.add('card', 'mb-3');
+        showAllNewsByCategory.classList.add('card', 'my-5');
         showAllNewsByCategory.innerHTML = `
         <div class="container d-lg-flex flex-lg-row p-lg-4">
             <img src="${news_item.thumbnail_url}" class="img-fluid rounded-start me-lg-2" alt="...">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-lg-between">
                 <h4 class="card-title">${news_item.title}</h4>
-                <p class="card-text news-info-container">${news_item.details.slice(0, 350)}...</p>
+                <p class="card-text text-color">${news_item.details.slice(0, 350)}...</p>
                 
                 <div class="news-info-container d-lg-flex align-items-center justify-content-between mt-lg-5 mt-2 border-top p-3">
                     <div class="d-flex justify-content-around align-items-center mb-lg-0 mb-2">
@@ -50,7 +50,7 @@ const displayCategoryNews = news => {
                             <img src="${news_item.author.img}" height="40" width="40" class="rounded-circle">
                         </div>
                         <div class="author-details">
-                            <p class="m-0">${news_item.author.name}</p>
+                            <p class="m-0 fw-semibold">${news_item.author.name}</p>
                             <p class="m-0">${news_item.author.published_date}</p>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const displayCategoryNews = news => {
                         <span><i class="fa-regular fa-star"></i></span>                        
                     </div>
                     <div>
-                        <button class="btn btn-primary">Details</button>
+                        <button class="btn btn-danger">Details</button>
                     </div>
                 </div>
             </div>
