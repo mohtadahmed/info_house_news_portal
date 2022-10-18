@@ -66,13 +66,13 @@ const displayCategoryNews = (newsContainer, categoryName) => {
                             <img src="${news_item.author.img}" height="40" width="40" class="rounded-circle">
                         </div>
                         <div class="author-details">
-                            <p class="m-0 fw-semibold">${news_item.author.name}</p>
-                            <p class="m-0">${news_item.author.published_date}</p>
+                            <p class="m-0 fw-semibold">${news_item.author.name ? news_item.author.name : 'No Information Found'}</p>
+                            <p class="m-0">${news_item.author.published_date ? news_item.author.published_date : 'No Information Found'}</p>
                         </div>
                     </div>
                     <div>
                         <span><i class="fa-solid fa-eye"></i></span>
-                        <span>${news_item.total_view}</span>
+                        <span>${news_item.total_view ? news_item.total_view : 'No Information Found'}</span>
                     </div>
                     <div class="mb-lg-0 mb-2">
                         <span><i class="fa-solid fa-star-half-stroke"></i></span>
@@ -117,19 +117,19 @@ const displayModalData = info => {
     `;
 
     const authorName = document.getElementById('author-name');
-    authorName.innerText = info.author.name;
+    authorName.innerText = info.author.name ? info.author.name : 'No Information Found';
 
     const publishedDate = document.getElementById('published-date');
-    publishedDate.innerText = info.author.published_date;
+    publishedDate.innerText = info.author.published_date ? info.author.published_date : 'No Information Found';
 
     const totalView = document.getElementById('total-view');
-    totalView.innerText = info.total_view;
+    totalView.innerText = info.total_view ? info.total_view : 'No Information Found';
 
     const newsRating = document.getElementById('rating-number');
-    newsRating.innerText = info.rating.number;
+    newsRating.innerText = info.rating ? info.rating.number : 'No Information Found';
 
     const newsQuality = document.getElementById('news-qualtity');
-    newsQuality.innerText = info.rating.badge;
+    newsQuality.innerText = info.rating ? info.rating.badge : 'No Information Found';
 
     const trendingNews = document.getElementById('trending-news');
     
@@ -141,7 +141,7 @@ const displayModalData = info => {
     }
 
     const detailsNews = document.getElementById('details-news');
-    detailsNews.innerText = info.details;
+    detailsNews.innerText = info.details ? info.details : 'No Information Found';
 }
 
 // Toggle Spinner Function
