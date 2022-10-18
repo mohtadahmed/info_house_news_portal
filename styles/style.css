@@ -38,7 +38,6 @@ hr {
 .list-category-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .category-list-items {
@@ -78,3 +77,14 @@ hr {
 /* News Container CSS Ends */
 
 /* ======================================= */
+
+/* Footer Section CSS Starts */
+
+/* footer {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    width: 100%;
+} */
+
+/* Footer Section CSS Starts */
