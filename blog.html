@@ -61,7 +61,107 @@
 
     <!-- Main Section -->
     <main>
+        <!-- Blog Section -->
+        <section class="container">
+            <div class="border border-danger p-lg-4 p-2 my-lg-4 my-2">
+                <div>
+                    <h3><span class="text-bg-danger p-1">What are the differences between Var, Let and Const?</span>
+                    </h3>
+                    <hr>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            var declarations are globally scoped or function scoped while let and const are block
+                            scoped.
+                        </li>
+                        <li>
+                            var variables can be updated and re-declared within its scope; let variables can be updated
+                            but
+                            not re-declared; const variables can neither be updated nor re-declared.
+                        </li>
+                        <li>
+                            They are all hoisted to the top of their scope. But while var variables are initialized with
+                            undefined, let and const variables are not initialized.
+                        </li>
+                        <li>
+                            While var and let can be declared without being initialized, const must be initialized
+                            during
+                            declaration.
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
+            <div class="border border-danger p-lg-4 p-2 my-lg-4 my-2">
+                <div>
+                    <h3><span class="text-bg-danger p-1">What are the differences between Arrow Function and Regular
+                            Function?</span></h3>
+                    <hr>
+                </div>
+                <div>
+                    <ul>
+                        <li>Syntax</li>
+                        <li>Arguments Binding</li>
+                        <li>Use of 'this' keyword</li>
+                        <li>Using a 'new' keyword</li>
+                        <li>No duplicated named parameters</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border border-danger p-lg-4 p-2 my-lg-4 my-2">
+                <div>
+                    <h3><span class="text-bg-danger p-1">What are the differences among Map, forEach, filter and
+                            find?</span></h3>
+                    <hr>
+                </div>
+                <div>
+                    <h5 class="text-danger">Map()</h5>
+                    <p>Function .map() is a manipulative function that can modify each elements content in an array that
+                        it is called on. This function returns a new array with modified values, the array that it is
+                        called on will stay still. This function is useful for adding a little change to an already
+                        existing array .map() executes the same code on every element in an array and returns a new
+                        array with the
+                        updated elements.</p>
+                    <hr>
+                    <h5 class="text-danger">forEach()</h5>
+                    <p>Function .forEach() is another form of just a plain for loop that can be used to iterate through
+                        array items. This case of a function is used for more complex arrays .forEach(), is used to
+                        execute the same code on every element in an array but does not change the
+                        array and it returns undefined.</p>
+                    <hr>
+                    <h5 class="text-danger">filter()</h5>
+                    <p>Function .filter() is a search function that returns all the elements that fulfil the assigned
+                        condition. .filter() checks every element in an array to see if it meets a certain criteria and
+                        returns a
+                        new array with the elements that return truthy for the criteria.</p>
+                    <hr>
+                    <h5 class="text-danger">find()</h5>
+                    <p>Function .find() is also a search function like the previous but they differ in one small detail
+                        — this function returns only one match in an array. If in an array is more than one result, the
+                        function will return the first that has matched.</p>
+                </div>
+            </div>
+
+            <div class="border border-danger p-lg-4 p-2 my-lg-4 my-2">
+                <div>
+                    <h3><span class="text-bg-danger p-1">Why should we use Template String?</span></h3>
+                    <hr>
+                </div>
+                <div>
+                    <p>Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
+                        insert/interpolate variables and expressions into strings without needing to concatenate like in
+                        older versions of JavaScript. It allows us to create strings that are complex and contain
+                        dynamic elements. Another great thing that comes with template strings are tags. Tags are
+                        functions that take a string and the decomposed parts of the string as parameters and are great
+                        for converting strings to different entities.
+
+                        The syntax for creating template strings is by using backticks to delimit them.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section -->
     </main>
     <!-- Main Section -->
 
@@ -72,7 +172,7 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <!-- JS File Link -->
-    <script src="js/app.js"></script>
+    <!-- <script src="js/app.js"></script> -->
     <!-- =========================== -->
     <!-- JavaScript Source File Link -->
 </body>
